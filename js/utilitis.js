@@ -28,6 +28,50 @@ function getTotalExpense(){
 
 }
 
+
+function getInnerTextById(innerTextId){
+
+    const previousInnerText = document.getElementById(innerTextId);
+    const previousInnerTextString = previousInnerText.innerText;
+    const previousInnerTextNumber = parseFloat(previousInnerTextString);
+    previousInnerText.innerText = previousInnerTextNumber;
+    return previousInnerTextNumber;
+}
+
+
+function SetSavingsAmount (){
+
+    const currentBalance = getInnerTextById('balance');
+    const wantToSaveAmount = getValueById('save');
+    const savingAmount = document.getElementById('saving-amount');
+    const savingAmountNumber = parseFloat(savingAmount.innerText).toFixed(2);
+
+    const totalSavigs = currentBalance * (wantToSaveAmount / 100);
+    savingAmount.innerText=totalSavigs;
+
+    const moneySavings = document.getElementById('remaining-balance');
+
+    const totalRemainingBalance = currentBalance - totalSavigs;
+   
+    moneySavings.innerText = totalRemainingBalance;
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function calPercnt(remainingBalance, percentageNum){
 //     const remainingBalance = document.getElementById('balance');
 //     remainingBalance.innerText = getRemainingBalance();
